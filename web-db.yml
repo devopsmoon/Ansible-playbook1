@@ -1,0 +1,33 @@
+- name: setup web server
+  hosts: websrv
+  become: true
+  tasks:
+    - name: Installing the apache web server
+      yum:
+        name: httpd
+        state: present
+
+    - name: starting the httpd service
+      service:
+        name: httpd
+        state: restarted
+        enabled: true
+
+    - name: copying the index.html file to webserver
+      copy:
+        src: index.html
+        dest: /var/www/html/index.html
+        mode: 600
+        owner: root
+        group: root
+
+    - name: install the mysql server
+      yum:
+        name: mariadb-server
+        state: present
+
+    - name: starting the mysql server
+      service:
+        name: mariadb
+        state: restarted
+        enabled: true
