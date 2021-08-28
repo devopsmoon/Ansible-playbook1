@@ -14,5 +14,5 @@ websrv
 dbsrv
 
 [db_ohio:vars]
-ansible_user=centos
+ansible_user=root
 ansible_ssh_private_key_file=vprofile-key.pem
