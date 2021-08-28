@@ -1,0 +1,8 @@
+- name: removing the db server from web server
+  hosts: websrv
+  become: true
+  tasks:
+    - name: removing the db server
+      yum:
+        name: mariadb-server
+        state: absent
