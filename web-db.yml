@@ -21,6 +21,10 @@
         owner: root
         group: root
 
+- name: install the mysql server
+  hosts: dbsrv
+  become: true
+  tasks:
     - name: install the mysql server
       yum:
         name: mariadb-server
